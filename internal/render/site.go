@@ -79,12 +79,12 @@ func isNewer(path string, t time.Time) bool {
 func Build(output string, live bool) error {
 	err := os.RemoveAll(output)
 	if err != nil {
-		errors.Wrap(err, "unable to remove files from output directory")
+		return errors.Wrap(err, "unable to remove files from output directory")
 	}
 
 	err = os.MkdirAll(output, os.FileMode(0755))
 	if err != nil {
-		errors.Wrap(err, "unable to create output directory")
+		return errors.Wrap(err, "unable to create output directory")
 	}
 
 	var wg sync.WaitGroup

@@ -1,6 +1,7 @@
 package model
 
 import (
+	"fmt"
 	"strings"
 	"time"
 )
@@ -21,6 +22,10 @@ type Ticket struct {
 	ClosedAt   *time.Time
 	CreatedAt  *time.Time
 	UpdatedAt  *time.Time
+}
+
+func (t *Ticket) String() string {
+	return fmt.Sprintf("id=%s, name=%s, state=%s, createdAt=%s, closedAt=%s", t.ID, t.Name, t.State, t.CreatedAt, t.ClosedAt)
 }
 
 func (t *Ticket) ProcedureID() string {

@@ -2,11 +2,12 @@ package ticket
 
 import (
 	"fmt"
+	"log"
 	"sort"
 	"time"
 
 	"github.com/pkg/errors"
-	"github.com/robfig/cron"
+	"github.com/robfig/cron/v3"
 	"github.com/strongdm/comply/internal/config"
 	"github.com/strongdm/comply/internal/model"
 )
@@ -52,20 +53,26 @@ func TriggerScheduled() error {
 		}
 
 		procedureID := procedure.ID
-		schedule, err := cron.Parse(procedure.Cron)
+		log.Printf("checking %s", procedureID)
+		schedule, err := cron.ParseStandard(procedure.Cron)
 		if err != nil {
+			log.Printf("error parsing cron expression %s: %s", procedure.Cron, err)
 			continue
 		}
 		ticketsForProc, ok := tickets[procedureID]
 		if ok {
 			// find most recent one
+
 			mostRecent := ticketsForProc[len(ticketsForProc)-1]
 			if mostRecent.CreatedAt == nil {
 				continue
 			}
 
+			log.Printf("most recent: %s", mostRecent)
+
 			// would another have triggered since?
 			nextTrigger := schedule.Next(*mostRecent.CreatedAt).UTC()
+			log.Printf("next trigger: %s", nextTrigger)
 			if nextTrigger.After(time.Now().UTC()) {
 				// in the future, nothing to do
 				continue
