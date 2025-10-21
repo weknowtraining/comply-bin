@@ -1,12 +1,12 @@
 module github.com/strongdm/comply
 
-go 1.17
+go 1.25
 
 require (
 	github.com/Clever/gitsem v1.1.0
 	github.com/Microsoft/go-winio v0.5.0 // indirect
 	github.com/aktau/github-release v0.10.0
-	github.com/andygrunwald/go-jira v1.14.0
+	github.com/andygrunwald/go-jira v1.17.0
 	github.com/containerd/containerd v1.5.10 // indirect
 	github.com/containous/go-bindata v1.0.0
 	github.com/cpuguy83/go-md2man/v2 v2.0.1 // indirect
@@ -18,7 +18,6 @@ require (
 	github.com/fsnotify/fsnotify v1.5.1 // indirect
 	github.com/github-release/github-release v0.10.0 // indirect
 	github.com/gohugoio/hugo v0.88.1
-	github.com/golang-jwt/jwt v3.2.2+incompatible // indirect
 	github.com/google/go-github v17.0.0+incompatible
 	github.com/google/go-querystring v1.1.0 // indirect
 	github.com/gorilla/websocket v1.4.2
@@ -43,7 +42,7 @@ require (
 	github.com/yosssi/ace v0.0.5
 	golang.org/x/net v0.0.0-20211005001312-d4b1ae081e3b // indirect
 	golang.org/x/oauth2 v0.0.0-20210819190943-2bc19b11175f
-	golang.org/x/sys v0.0.0-20211004093028-2c5d950f24ef // indirect
+	golang.org/x/sys v0.0.0-20220330033206-e17cdc41300f // indirect
 	golang.org/x/time v0.0.0-20210723032227-1f47c861a9ac // indirect
 	google.golang.org/genproto v0.0.0-20211005153810-c76a74d43a8e // indirect
 	google.golang.org/grpc v1.41.0 // indirect
@@ -59,6 +58,7 @@ require (
 	github.com/dustin/go-humanize v1.0.0 // indirect
 	github.com/fatih/structs v1.1.0 // indirect
 	github.com/gogo/protobuf v1.3.2 // indirect
+	github.com/golang-jwt/jwt/v4 v4.5.2 // indirect
 	github.com/golang/protobuf v1.5.2 // indirect
 	github.com/lunixbochs/vtclean v1.0.0 // indirect
 	github.com/mattn/go-isatty v0.0.14 // indirect

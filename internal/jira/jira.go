@@ -125,7 +125,7 @@ func (j *jiraPlugin) FindByTag(name, value string) ([]*model.Ticket, error) {
 }
 
 func (j *jiraPlugin) FindByTagName(name string) ([]*model.Ticket, error) {
-	issues, _, err := j.api().Issue.Search("labels=comply", &jira.SearchOptions{MaxResults: 1000})
+	issues, _, err := j.api().Issue.SearchV2JQL("labels=comply", &jira.SearchOptionsV2{MaxResults: 1000, Fields: []string{"*all"}})
 	if err != nil {
 		return nil, errors.Wrap(err, "unable to fetch Jira issues")
 	}
