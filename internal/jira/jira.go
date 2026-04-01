@@ -2,6 +2,7 @@ package jira
 
 import (
 	"fmt"
+	"os"
 	"sync"
 	"time"
 
@@ -90,6 +91,7 @@ func (j *jiraPlugin) Configure(cfg map[string]interface{}) error {
 	if j.password, err = getCfg(cfg, cfgPassword); err != nil {
 		return err
 	}
+	j.password = os.ExpandEnv(j.password)
 	if j.url, err = getCfg(cfg, cfgURL); err != nil {
 		return err
 	}
